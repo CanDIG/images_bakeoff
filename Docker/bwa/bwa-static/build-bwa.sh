@@ -33,7 +33,5 @@ ex -sc '1i|#include <inttypes.h>' -cx kthread.c
 ex -sc '1i|#include <sys/types.h>' -cx bwtgap.h
 ex -sc '1i|#include <sys/types.h>' -cx bwt_lite.c
 make bwa CC=../bin/musl-gcc CFLAGS="-g -Wall -Wno-unused-function -O2 -static -I../zlib/1.2.8/include" LIBS="-lm -L../zlib/1.2.8/lib -lz -lpthread -lrt"
-
-make bwa CC=../bin/musl-gcc make bwa
 cp bwa ..
 cd ..
