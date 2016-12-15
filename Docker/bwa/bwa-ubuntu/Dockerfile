@@ -12,7 +12,7 @@ RUN cd /tmp \
     && tar -xzf v$VERSION.tar.gz \
     && rm v$VERSION.tar.gz \
     && cd bwa-$VERSION \
-    && CFLAGS="-static -g -Wall -Wno-unused-function -O2" make bwa \
+    && CFLAGS="-g -Wall -Wno-unused-function -O2" make bwa \
     && mv bwa /usr/local/bin 
     
 RUN rm -rf /tmp/bwa-$VERSION
