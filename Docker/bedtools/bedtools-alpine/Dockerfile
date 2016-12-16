@@ -16,13 +16,14 @@ RUN cd /tmp \
     && tar xf bedtools-$VERSION.tar \
     && rm bedtools-$VERSION.tar \
     && cd bedtools2 \
+    && sed -i -e 's/-fPIC/-fPIC -static/' Makefile \
+    && sed -i -e 's/ -lz/ -static-libgcc -static-libstdc++ -lz/' Makefile \
     && make \
     && mv bin/* /usr/local/bin 
     
 ## cleanup 
 
-RUN apk del wget build-base python \
-    && apk cache clean
+RUN apk del wget python 
 
 RUN rm -rf /tmp/bedtools2
 
