@@ -1,0 +1,29 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: trusty
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+Include: bash
+
+%post
+    apt-get install -y build-essential wget zlib1g-dev python
+    VERSION=2.26.0
+    cd /tmp
+    /usr/bin/wget -nv --no-check-certificate https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-${VERSION}.tar.gz -O bedtools-${VERSION}.tar.gz
+    gunzip bedtools-${VERSION}.tar.gz
+    tar xf bedtools-${VERSION}.tar
+    rm bedtools-${VERSION}.tar 
+    cd bedtools2
+    make
+    mv bin/* /usr/local/bin
+    cd ..
+    rm -rf bedtools2
+    apt-get remove -y wget python
+    apt-get autoremove
+
+%runscript
+    exec /usr/local/bin/bedtools "$@"
