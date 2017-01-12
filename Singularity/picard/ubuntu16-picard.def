@@ -12,25 +12,11 @@ Include: bash
 %post
     # get needed packages
     apt-get update
-    apt-get install -y git openjdk-8-jre libstdc++6
+    apt-get install -y git openjdk-8-jre-headless wget
 
-    # get picard from github, including dependency htsjdk
-    cd /usr/
-    git clone https://github.com/broadinstitute/picard.git 
-    cd picard
-    git clone https://github.com/samtools/htsjdk.git
-
-    # build picard using gradle
-    ./gradlew -g /tmp shadowJar
-    mv build/libs/picard.jar picard.jar
-
-    # remove now-unnnecessary files
-    rm -rf htsjdk
-    rm -rf src
-    rm -rf lib
-    rm build.xml
-    ./gradlew clean
-    apt-get autoremove
+    mkdir /usr/picard
+    cd /usr/picard
+    wget -nv https://github.com/broadinstitute/picard/releases/download/2.8.1/picard.jar -O picard.jar
 
 %runscript
     exec java -jar /usr/picard/picard.jar "$@"
