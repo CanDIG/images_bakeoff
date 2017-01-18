@@ -9,27 +9,29 @@ ways of bundling applications.  Criteria will be:
     - I/O throughput
     - memory latency
 - Maintainability
-    - automatiability of updated builds
-    - Ease of installing need s/w infrastructure at sites
+    - automatability of updated builds
+    - Ease of installing: amount of needed s/w infrastructure at sites
 - Generality
     - Will it cover all use cases
+- Sustainability
+    - Will it exist/break backward compatibility over the course of 4 years
 - Security
 
 We will be examining:
-- VMs
+- Application packagers
+    - [AppImage](http://appimage.org)
+    - [Snaps](http://snapcraft.io)
 - Containers on bare metal:
     - [Docker](http://docker.com)
     - [rkt+CoreOS](https://coreos.com/rkt/)
     - [LXD](https://www.ubuntu.com/cloud/lxd)
     - [Singularity](http://singularity.lbl.gov)
     - [Shifter](https://github.com/NERSC/shifter) (maybe?)
-- The above containers within a VM
+- VMs
+- The above containers, packages within a VM
 - VM within a VM
-- Application packagers
-    - [AppImage](http://appimage.org)
-    - [Snaps](http://snapcraft.io)
 
-With bare-metal native executables as a baseline.
+And we will use bare-metal native executables as a baseline.
 
 The benchmark is a remapping benchmark, where GRCh37-aligned BAMs
 are converted to FASTQ (using Picard - I/O throughput), GRCh38 is
