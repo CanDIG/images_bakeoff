@@ -17,15 +17,19 @@ ways of bundling applications.  Criteria will be:
 
 We will be examining:
 - VMs
-- Containers:
+- Containers on bare metal:
     - [Docker](http://docker.com)
     - [rkt+CoreOS](https://coreos.com/rkt/)
     - [LXD](https://www.ubuntu.com/cloud/lxd)
     - [Singularity](http://singularity.lbl.gov)
-    - [Shifter](https://github.com/NERSC/shifter)
+    - [Shifter](https://github.com/NERSC/shifter) (maybe?)
+- The above containers within a VM
+- VM within a VM
 - Application packagers
     - [AppImage](http://appimage.org)
     - [Snaps](http://snapcraft.io)
+
+With bare-metal native executables as a baseline.
 
 The benchmark is a remapping benchmark, where GRCh37-aligned BAMs
 are converted to FASTQ (using Picard - I/O throughput), GRCh38 is
