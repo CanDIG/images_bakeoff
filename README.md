@@ -68,16 +68,16 @@ $ bwa mem hg38.fa.gz file_1.fastq file_2.fastq | samtools view -bS - | samtools 
 Benchmark datasets are thousand genomes BAMs:
 
 * Test sets (~400 MB)
-    - [Low coverage phase1 chr 20 HG00119](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.chrom20.ILLUMINA.bwa.GBR.low_coverage.20101123.bam)
-    - [Low coverage phase1 chr 20 NA19700](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.chrom20.ILLUMINA.bwa.ASW.low_coverage.20101123.bam)
-    - [Low coverage phase1 chr 20 HG00513](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.chrom20.ILLUMINA.bwa.CHS.low_coverage.20101123.bam)
+    - Low coverage phase1 chr 20 HG00119: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.chrom20.ILLUMINA.bwa.GBR.low_coverage.20101123.bam
+    - Low coverage phase1 chr 20 NA19700: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.chrom20.ILLUMINA.bwa.ASW.low_coverage.20101123.bam
+    - Low coverage phase1 chr 20 HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.chrom20.ILLUMINA.bwa.CHS.low_coverage.20101123.bam
 * Small (~ 1GB)
-    - [Low coverage phase1 unmapped reads HG00119](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.unmapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam)
-    - [Low coverage phase1 unmapped reads NA19700](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.unmapped.ILLUMINA.bwa.ASW.low_coverage.20101123.bam)
-    - [Low coverage phase1 unmapped reads HG00513](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.unmapped.ILLUMINA.bwa.CHS.low_coverage.20101123.bam)
+    - Low coverage phase1 unmapped reads HG00119: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.unmapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam
+    - Low coverage phase1 unmapped reads NA19700: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.unmapped.ILLUMINA.bwa.ASW.low_coverage.20101123.bam
+    - Low coverage phase1 unmapped reads HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.unmapped.ILLUMINA.bwa.CHS.low_coverage.20101123.bam
 * Medium (~15GB)
-    - [Low coverage phase1 WGS HG00119](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.mapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam)
-    - [Low coverage phase1 WGS NA19700](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.mapped.ILLUMINA.bwa.ASW.low_coverage.20101123.bam)
-    - [Low coverage phase1 WGS HG00513](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.unmapped.ILLUMINA.bwa.CHS.low_coverage.20101123.bam)
+    - Low coverage phase1 WGS HG00119: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.mapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam
+    - Low coverage phase1 WGS NA19700: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.mapped.ILLUMINA.bwa.ASW.low_coverage.20101123.bam
+    - Low coverage phase1 WGS HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.unmapped.ILLUMINA.bwa.CHS.low_coverage.20101123.bam
 * Large (~60GB)
-    - [High coverage HGSV, WGS HG00513](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/data/CHS/HG00513/high_cov_alignment/HG00513.alt_bwamem_GRCh38DH.20150715.CHS.high_coverage.cram)
+    - High coverage HGSV, WGS HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/data/CHS/HG00513/high_cov_alignment/HG00513.alt_bwamem_GRCh38DH.20150715.CHS.high_coverage.cram
