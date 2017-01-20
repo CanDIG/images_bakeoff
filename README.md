@@ -78,6 +78,6 @@ Benchmark datasets are thousand genomes BAMs:
 * Medium (~15GB)
     - Low coverage phase1 WGS HG00119: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00119/alignment/HG00119.mapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam
     - Low coverage phase1 WGS NA19700: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/NA19700/alignment/NA19700.mapped.ILLUMINA.bwa.ASW.low_coverage.20101123.bam
-    - Low coverage phase1 WGS HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.unmapped.ILLUMINA.bwa.CHS.low_coverage.20101123.bam
+    - Low coverage phase1 WGS HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00513/alignment/HG00513.mapped.ILLUMINA.bwa.CHS.low_coverage.20101123.bam
 * Large (~60GB)
     - High coverage HGSV, WGS HG00513: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/data/CHS/HG00513/high_cov_alignment/HG00513.alt_bwamem_GRCh38DH.20150715.CHS.high_coverage.cram
