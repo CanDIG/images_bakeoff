@@ -37,8 +37,8 @@ The benchmark is a remapping benchmark, where GRCh37-aligned BAMs
 are converted to FASTQ (using Picard - I/O throughput), GRCh38 is
 indexed (samtools - I/O throughput), and the FASTQs are re-aligned
 (using BWA mem - memory throughput), and then coverage is measured
-at an unsorted list of random positions (bedtools - I/O random
-access).  This involves two native executables (bedtools and bwa) and
+at an unsorted list of random positions (samtools view - I/O random
+access).  This involves two native executables (samtools and bwa) and
 one large java application (Picard).  We will also examine tools for
 encapsulating the entire pipeline.
 

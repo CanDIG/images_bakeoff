@@ -1,0 +1,6 @@
+#!/bin/bash
+##
+## wrapper script for samtools - just wrap in a time command
+##
+
+time /usr/local/bin/samtools "$@"
