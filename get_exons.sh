@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 function usage 
 {
@@ -19,12 +19,12 @@ function download_exons {
              > "${datadir}"/exons.bed
     fi
 
-    awk '$1==20' ${datadir}/exons.bed \
+    awk '$1==20' "${datadir}"/exons.bed \
         | uniq \
         | sort -R \
         > "${datadir}"/exons_20-random.bed
 
-    sort -R ${datadir}/exons.bed \
+    sort -R "${datadir}"/exons.bed \
         | awk 'BEGIN{ for(i=1;i<=22;i++) {ischr[i ""]="1"}; ischr["X"]="1"; ischr["Y"]="1";} ischr[$1 ""]=="1"' \
         | uniq \
         | sort -R \
@@ -34,16 +34,18 @@ function download_exons {
 function output_view {
     local input=$1
     local output=$2
-    local perline=${3:-1000}
+    local output_txt=$3
+    local perline=${4:-1000}
 
-    echo "#!/usr/bin/env bash" > ${output}
+    echo "#!/usr/bin/env bash" > "${output}"
     nentries=$( wc -l "$input" | cut -f 1 -d ' ')
     nlines=$((nentries/perline))
 
     for i in $( seq 1 "${nlines}" )
     do
         last=$((i*perline))
-        records=$( cat $input | head -n $last | tail -n $nentries | awk '{printf "%s:%s-%s ", $1, $2, $3}' )
+        records=$( head -n "$last" "$input" | tail -n "$nentries" | awk '{printf "%s:%s-%s ", $1, $2, $3}' )
+        echo "${records}" >> "${output_txt}"
         echo "/usr/bin/samtools view -F 4 sorted.bam ${records} | wc -l" >> "${output}"
     done
 }
@@ -52,12 +54,12 @@ function main {
     local datadir=$1
     local nperline=${2:-1000}
     download_exons "$datadir"
-    output_view "$datadir"/exons_20-random.bed "$datadir"/view_exons_20.sh $nperline
-    output_view "$datadir"/exons-random.bed "$datadir"/view_exons.sh $nperline
+    output_view "$datadir"/exons_20-random.bed "$datadir"/view_exons_20.sh "$datadir/exons_20.txt" "$nperline"
+    output_view "$datadir"/exons-random.bed "$datadir"/view_exons.sh "$datadir/exons.txt" "$nperline"
 }
 
 if [[ -z "$1" || ! -d "$1" ]]
 then
     usage
 fi
-main $1 1000
+main "$1" 1000

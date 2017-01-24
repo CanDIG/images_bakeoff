@@ -34,5 +34,6 @@ RUN apk del wget bzip2
 RUN mkdir /usr/wrapper
 
 COPY samtools /usr/wrapper
+COPY samtools_random /usr/wrapper
 
 ENTRYPOINT ["/usr/wrapper/samtools"]
