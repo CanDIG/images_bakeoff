@@ -21,4 +21,6 @@ RUN apt-get remove -y build-essential git
 
 RUN apt autoremove -y
 
-ENTRYPOINT ["/usr/local/bin/bwa"]
+COPY wrapper.sh /usr/local/bin/wrapper.sh
+
+ENTRYPOINT ["/usr/local/bin/wrapper.sh"]
