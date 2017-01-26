@@ -34,5 +34,6 @@ RUN cd /usr/picard \
     && rm build.xml \
     && ./gradlew clean
 
-RUN mkdir /usr/working
-WORKDIR /usr/working
+COPY wrapper.sh /usr/local/bin/wrapper.sh
+
+ENTRYPOINT ["/usr/local/bin/wrapper.sh"]
