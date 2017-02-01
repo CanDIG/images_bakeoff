@@ -1,4 +1,4 @@
-CARD=${HOME}/singularities/ubuntu16-picard.img/data/$( basename ${bam} )  #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 readonly DATA="${HOME}/data"
 readonly OUT="${HOME}/singularity_out"
