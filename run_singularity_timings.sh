@@ -53,7 +53,7 @@ do
     /usr/bin/time -p -a -o "$logfile" singularity run ${SAMTOOLS} index sorted.bam
 
     log "$logfile" "samtools view random"
-    /usr/bin/time -p -a -o "$logfile" singularity exec ${SAMTOOLS} /usr/local/bin/samtools_random.sh viewlines.txt | wc -l
+    /usr/bin/time -p -a -o "$logfile" singularity exec ${SAMTOOLS} /usr/local/bin/samtools_random.sh sorted.bam viewlines.txt | wc -l
 
     log "$logfile" "rm"
     /usr/bin/time -p -a -o "$logfile" singularity exec ${BWA} /bin/rm -f file_1.fastq file_2.fastq output.bam sorted.bam sorted.bam.bai input.bam hg38.fa.gz hg38.fa.gz.amb hg38.fa.gz.ann hg38.fa.gz.bwt hg38.fa.gz.fai hg38.fa.gz.pac hg38.fa.gz.sa viewlines.txt
