@@ -1,0 +1,29 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: trusty
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+Include: bash
+
+%post
+    apt-get install -y build-essential wget zlib1g-dev ncurses-dev bzip2
+    VERSION=1.3.1
+    cd /tmp
+    /usr/bin/wget -nv --no-check-certificate -O samtools-$VERSION.tar.bz2 http://github.com/samtools/samtools/releases/download/$VERSION/samtools-$VERSION.tar.bz2
+    bunzip2 samtools-${VERSION}.tar.bz2
+    tar xf samtools-${VERSION}.tar
+    rm samtools-${VERSION}.tar 
+    cd samtools-$VERSION
+    make
+    make install
+    cd ..
+    rm -rf samtools-$VERSION
+    apt-get remove bzip2
+    apt-get autoremove
+
+%runscript
+    exec /usr/local/bin/samtools "$@"
