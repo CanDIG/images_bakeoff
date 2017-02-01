@@ -10,7 +10,8 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 Include: bash
 
 %post
-    apt-get install -y build-essential wget zlib1g-dev ncurses-dev bzip2
+    apt-get install -y wget zlib1g-dev ncurses-dev bzip2
+    apt-get install -y build-essential 
     VERSION=1.3.1
     cd /tmp
     /usr/bin/wget -nv --no-check-certificate -O samtools-$VERSION.tar.bz2 http://github.com/samtools/samtools/releases/download/$VERSION/samtools-$VERSION.tar.bz2
@@ -24,6 +25,8 @@ Include: bash
     rm -rf samtools-$VERSION
     apt-get remove bzip2
     apt-get autoremove
+    /usr/bin/wget -nv --no-check-certificate -O /usr/local/bin/samtools_random.sh https://raw.githubusercontent.com/CanDIG/images_bakeoff/master/Singularity/samtools/samtools-ubuntu/samtools_random.sh
+    chmod 755 /usr/local/bin/samtools_random.sh 
 
 %runscript
     exec /usr/local/bin/samtools "$@"
